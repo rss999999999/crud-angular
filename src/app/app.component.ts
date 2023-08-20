@@ -1,3 +1,4 @@
+//esse é o arquivo principal da nossa aplicação
 import { Component } from '@angular/core';
 
 @Component({
