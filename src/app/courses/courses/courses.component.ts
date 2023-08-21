@@ -1,3 +1,4 @@
+import { CoursesService } from './../services/courses.service';
 import { Component } from '@angular/core';
 import { Course } from '../model/course';   //aqui ele importa a lista de ids, cursos e categorias da pasta model/course.ts
 
@@ -8,9 +9,16 @@ import { Course } from '../model/course';   //aqui ele importa a lista de ids, c
 })
 export class CoursesComponent {
 
-  courses: Course[] = [
-    { _id: "1", name: 'Angular', category: 'front-end'}
-  ];
+  courses: Course[] = [];
   displayedColumns = ['name' , 'category' ];
+
+  //CoursesService: CoursesService;
+
+  constructor(private coursesService: CoursesService ) {  //isso funcionará por causa do injectable no courses.service.ts
+    //this.CoursesService = new CoursesService();
+    this.courses = this.coursesService.list();
+
+  }
+
 
 }
