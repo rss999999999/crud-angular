@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Course } from '../model/course';
+import { Course } from '../model/course';   //aqui ele importa a lista de ids, cursos e categorias da pasta model/course.ts
 
 @Component({
   selector: 'app-courses',
