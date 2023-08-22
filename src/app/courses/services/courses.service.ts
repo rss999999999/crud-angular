@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { tap } from 'rxjs';
+import { first } from 'rxjs/operators';
 
 import { Course } from '../model/course';
 
@@ -7,11 +9,16 @@ import { Course } from '../model/course';
   providedIn: 'root'
 })
 export class CoursesService {
-  constructor(private httpClient: HttpClient) { }  //injeção de independencia, httpClient eh uma instância que vai ser fornecida pela raiz do projeto 'root', ou seja, ela será global
 
-  list(): Course[] {           //essa lista estava no arquivo courses.component.ts na pasta courses/courses
-    return [
-      { _id: "1", name: 'Angular', category: 'front-end'}
-    ];
+  private readonly API = '/assets/courses.json';
+
+  constructor(private httpClient: HttpClient) { }
+
+  // Retorna uma lista de cursos
+  list() {
+    return this.httpClient.get<Course[]>(this.API)
+    .pipe(
+      first(),
+      tap(courses => console.log(courses)));  //aqui eu usarei manipulação reativa, os dados poderão passar por esse cano e serão manipulados.
   }
 }
