@@ -11,7 +11,7 @@ import { CoursesService } from './../services/courses.service';
 })
 export class CoursesComponent {
 
-  courses: Observable <Course[]>;
+  courses$: Observable <Course[]>;
   //courses: Course[] = [];
   displayedColumns = ['name' , 'category' ];
 
@@ -20,6 +20,6 @@ export class CoursesComponent {
   constructor(private coursesService: CoursesService ) {  //isso funcionará por causa do injectable no courses.service.ts
     //this.CoursesService = new CoursesService();
     //this.coursesService.list().subscribe(courses => this.courses = courses);
-    this.courses = this.coursesService.list();
+    this.courses$ = this.coursesService.list();
   }
 }
