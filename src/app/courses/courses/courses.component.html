@@ -4,7 +4,10 @@
     <mat-toolbar color="primary">Cursos Disponíveis</mat-toolbar>
 
     <!-- Tabela com os cursos -->
-    <table mat-table [dataSource]="courses" class="mat-elevation-z8">
+    <table  mat-table [dataSource]="courses" class="mat-elevation-z8">
+      <caption>Informação de Cursos</caption>
+
+      <!-- Your table content here -->
       <!-- Coluna do nome do curso -->
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef> Curso </th>
