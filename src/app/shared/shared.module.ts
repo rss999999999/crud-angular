@@ -9,7 +9,8 @@ import { CategoryPipe } from './pipes/category.pipe';
 
 @NgModule({
   declarations: [                          //declaração é apenas a parte de componentes
-    ErrorDialogComponent, CategoryPipe
+    ErrorDialogComponent,
+    CategoryPipe
   ],
   imports: [                              //import é apenas a parte de módulos
     CommonModule,
